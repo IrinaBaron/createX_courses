@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', e => {
+// document.addEventListener('DOMContentLoaded', e => {
   const btnVisible = document.querySelector('.online__more');
   const inputSearchCourses = document.querySelector('.online__input');
   const btnSearchCourses = document.querySelector('.online__search');
@@ -107,18 +107,19 @@ document.addEventListener('DOMContentLoaded', e => {
   })
 
   function tabDirect(e) {
-    console.log(e.target) //не удалять
-    btnVisible.style.display = 'none'
+    console.log(e.target.textContent) //не удалять
+    btnVisible.style.display = 'none';
     courses.forEach(course => {
       course.style.display = 'none';
     });
 
-    let elem = this.textContent.split(' ').slice(0, 1);
-    if (elem[0].toLowerCase().includes('all')) {
+    let elem = this.textContent.split('');
+    elem.pop();
+    elem = elem.join('').toLowerCase();
+    if (elem.includes('all')) {
       showNineElements();
     }
-    searchCourse(elem[0].toLowerCase());
-
+    searchCourse(elem);    
     if (this.closest('.active')) {
       this.classList.remove('active');
     } else {
@@ -128,6 +129,11 @@ document.addEventListener('DOMContentLoaded', e => {
   }
 
   function searchCourse(direct) {
+    if(direct.includes('hr')) {
+      direct = direct.split('').slice(0,2);
+      direct = direct.join('');
+  
+    }
     
     let elems = document.querySelectorAll(`.${direct}`);
     elems.forEach(elem => {
@@ -140,7 +146,7 @@ document.addEventListener('DOMContentLoaded', e => {
   }
 
 
-})
+// })
 /**
  * Applies the :focus-visible polyfill at the given scope.
  * A scope in this case is either the top-level Document or a Shadow Root.
