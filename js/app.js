@@ -1,4 +1,6 @@
-// document.addEventListener('DOMContentLoaded', e => {
+// document.addEventListener('DOMContentLoaded', e => 
+if (window.location.pathname.includes('courses')){
+  // console.log()
   const btnVisible = document.querySelector('.online__more');
   const inputSearchCourses = document.querySelector('.online__input');
   const btnSearchCourses = document.querySelector('.online__search');
@@ -144,9 +146,7 @@
     });
     return
   }
-
-
-// })
+};
 /**
  * Applies the :focus-visible polyfill at the given scope.
  * A scope in this case is either the top-level Document or a Shadow Root.
