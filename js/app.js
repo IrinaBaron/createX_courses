@@ -160,10 +160,10 @@ document.addEventListener('DOMContentLoaded', (e) => {
   });
 
 })
-
+console.log(window.location.pathname)
 // document.addEventListener('DOMContentLoaded', e => 
 if (window.location.pathname.includes('courses')){
-  // console.log()
+  
   const btnVisible = document.querySelector('.online__more');
   const inputSearchCourses = document.querySelector('.online__input');
   const btnSearchCourses = document.querySelector('.online__search');
