@@ -542,7 +542,7 @@ try {
 
 
 } catch (error) {
-  console.log(error + 'page events')
+  console.log(error)
 }
 /**
  * Applies the :focus-visible polyfill at the given scope.
