@@ -533,6 +533,7 @@ try {
 
 
   function cleanList() {
+    events = document.querySelectorAll('.events__item');
     events.forEach(event => {
       event.style.display = 'none';
     });
