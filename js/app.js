@@ -367,7 +367,7 @@ try {
   let btnsPages;
 
   function createVisibleCards() {
-    for (let i = 0; i < +value; i++) {
+    for (let i = 0; i < value; i++) {
       events[i].style.display = 'flex';
     };
     return
@@ -376,7 +376,7 @@ try {
   
 
   function createNumPages(value) {
-    pages = Math.ceil(events.length / +value);
+    pages = Math.ceil(events.length / Number(value));
     for (let k = 0; k < pages; k++) {
       let li = document.createElement('li');
       let btnPages = document.createElement('button');
@@ -400,13 +400,13 @@ try {
         let num = e.target.textContent;
         cleanList();
 
-        if(+num > 1) {
+        if(Number(num) > 1) {
           document.querySelector('.events-prev').removeAttribute('disabled');
         } 
-        if(+num === 1) {
+        if(Number(num) === 1) {
           document.querySelector('.events-prev').setAttribute('disabled', true);
         }
-        if((+num + 1) > btnsPages.length) {
+        if((Number(num) + 1) > btnsPages.length) {
           document.querySelector('.events-next').setAttribute('disabled', true);
         } else {
           document.querySelector('.events-next').removeAttribute('disabled');
@@ -437,15 +437,15 @@ try {
       if (btn.classList.contains('active')) {
         cleanBtnsPages();
         
-        if((+btn.textContent + 2) > btnsPages.length) {
+        if((Number(btn.textContent) + 2) > btnsPages.length) {
           document.querySelector('.events-next').setAttribute('disabled', true);
         }
-        if ((+btn.textContent + 1) == (+btnsPages[i + 1].textContent)) {
+        if ((Number(btn.textContent) + 1) == (Number(btnsPages[i + 1].textContent))) {
           cleanBtnsPages();
           btnsPages[i + 1].classList.add('active');
         }
 
-        for (let k = (+btn.textContent * value); k < (value * (+btn.textContent + 1)); k++) {
+        for (let k = (Number(btn.textContent) * value); k < (value * (Number(btn.textContent) + 1)); k++) {
           events[k].style.display = 'flex';
 
         }
@@ -466,15 +466,15 @@ try {
 
       if (btn.classList.contains('active')) {
         
-        if ((+btn.textContent - 1) === 1) {
+        if ((Number(btn.textContent) - 1) === 1) {
           document.querySelector('.events-prev').setAttribute('disabled', true);
         }
         cleanBtnsPages();
-        if ((+btn.textContent - 1) == (+btnsPages[i - 1].textContent)) {
+        if ((Number(btn.textContent) - 1) == (Number(btnsPages[i - 1].textContent))) {
           cleanBtnsPages();
           btnsPages[i - 1].classList.add('active');
         }
-        for (let k = ((+btn.textContent - 2) * value); k < (value * (+btn.textContent - 1)); k++) {
+        for (let k = ((Number(btn.textContent) - 2) * value); k < (value * (Number(btn.textContent) - 1)); k++) {
           events[k].style.display = 'flex';
         }
 
@@ -497,7 +497,7 @@ try {
     };
     document.querySelector('.events-prev').setAttribute('disabled', true);
     document.querySelector('.events-next').removeAttribute('disabled');
-    for (let j = 0; j < +value; j++) {
+    for (let j = 0; j < value; j++) {
       document.querySelector('.events__btns_list').innerHTML = '';
       createNumPages(value);
 
