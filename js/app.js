@@ -374,7 +374,7 @@ try {
   }
   createVisibleCards(value)
   
-
+  
   function createNumPages(value) {
     pages = Math.ceil(events.length / Number(value));
     for (let k = 0; k < pages; k++) {
@@ -445,8 +445,8 @@ try {
           btnsPages[i + 1].classList.add('active');
         }
 
-        for (let k = (Number(btn.textContent) * value); k < (value * (Number(btn.textContent) + 1)); k++) {
-          events[k].style.display = 'flex';
+        for (let j = (Number(btn.textContent) * value); j < (value * (Number(btn.textContent) + 1)); j++) {
+          events[j].style.display = 'flex';
 
         }
         return
@@ -474,8 +474,8 @@ try {
           cleanBtnsPages();
           btnsPages[i - 1].classList.add('active');
         }
-        for (let k = ((Number(btn.textContent) - 2) * value); k < (value * (Number(btn.textContent) - 1)); k++) {
-          events[k].style.display = 'flex';
+        for (let j = ((Number(btn.textContent) - 2) * value); j < (value * (Number(btn.textContent) - 1)); j++) {
+          events[j].style.display = 'flex';
         }
 
       }
@@ -515,13 +515,37 @@ try {
     btnRow.classList.remove('active');
     btnSquares.classList.add('active');
     document.querySelector('.events__box').classList.add('changed');
-  })
+  });
 
   btnRow.addEventListener('click', (e) => {
     e.preventDefault();
     btnSquares.classList.remove('active');
     btnRow.classList.add('active');
     document.querySelector('.events__box').classList.remove('changed');
+  });
+
+  document.getElementById('category').addEventListener('input', (e) => {
+    cleanList()
+    console.log(e.target.value)
+    let categories = document.querySelectorAll('.lectures__online');
+    
+    categories.forEach(cat => {
+      if(cat.textContent.includes(e.target.value)) {
+        let parents = cat.parentNode;
+        
+        for(let i = 0; i < events.length; i++) {
+          
+          if(events[i] == parents.parentNode) {
+            events[i].style.display = 'flex';
+          } 
+        }
+      }
+      if(e.target.value.includes('all')) {
+        console.log('ok')
+        createVisibleCards(value)
+      }
+    })
+    return
   })
 
   function cleanBtnsPages() {
