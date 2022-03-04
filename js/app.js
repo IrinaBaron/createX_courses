@@ -366,13 +366,13 @@ try {
   let pages;
   let btnsPages;
 
-  function createVisibleCards() {
+  function createVisibleCards(value) {
     for (let i = 0; i < value; i++) {
       events[i].style.display = 'flex';
     };
     return
   }
-  createVisibleCards()
+  createVisibleCards(value)
   
 
   function createNumPages(value) {
