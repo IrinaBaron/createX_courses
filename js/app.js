@@ -1,149 +1,3 @@
-// document.addEventListener('DOMContentLoaded', (e) => {
-
-  try {
-    const swiper = new Swiper('.team__swiper', {
-      // Optional parameters
-      slidesPerView: 4,
-      spaceBetween: 30,
-      direction: 'horizontal',
-      loop: false,
-  
-      navigation: {
-        nextEl: '.team__container .swiper-button-next',
-        prevEl: '.team__container .swiper-button-prev',
-      },
-      a11y: {
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 40,
-        },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 40,
-        }
-      }
-  
-    });
-  
-    let teams = document.querySelectorAll('.team__img');
-    let socials = document.querySelectorAll('.team__social');
-  
-    for (let i = 0; i < teams.length; i++) {
-      let team = teams[i];
-      let soc = socials[i];
-  
-      team.addEventListener('click', () => {
-        soc.classList.toggle('show');
-      })
-  
-      soc.addEventListener('click', () => {
-        soc.classList.toggle('show')
-      })
-    }
-  
-  
-    const swiper1 = new Swiper('.say__swiper', {
-  
-      slidesPerView: 1,
-      pagination: {
-        el: '.say__swiper .swiper-pagination',
-        type: 'bullets',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.say .swiper-button-next',
-        prevEl: '.say .swiper-button-prev',
-      },
-      a11y: {
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
-      },
-  
-    });
-  
-    // -------link-----
-    let linksCourses = document.querySelectorAll('.featured__item');
-    // let teacherLocal = localStorage.getItem(teacherLocal);
-  
-    linksCourses.forEach(linkCourse => {
-      linkCourse.addEventListener('click', (e) => {
-        let teacher = linkCourse.querySelector('.featured__teacher');
-        // localStorage.setItem(teacher, teacherLocal);
-        console.log(teacher)
-        // e.preventDefault();
-        window.location.href='course.html';
-        
-      })
-    })
-    // console.log(teacherLocal)
-
-    // // -----------burger-------------
-    document.querySelector('.header-burger').addEventListener('click', () => {
-      document.querySelector('.header__item').classList.remove('active');
-      document.body.classList.toggle('stop-scrolling');
-      document.querySelector('.header-burger').classList.toggle('active');
-      document.querySelector('.header__nav').classList.toggle('active');
-      if (document.documentElement.clientWidth <= 575) {
-        document.querySelector('.header__wrap').classList.toggle('active');
-      }
-    })
-  
-    // ------------scroll--------------
-    const btnScroll = document.querySelector('.btn__scroll');
-    window.addEventListener('scroll', () => {
-      let scrollNum = window.pageYOffset;
-      document.querySelector('.footer__go');
-      document.querySelector('.footer__link_logo');
-      if (scrollNum >= '100') {
-        btnScroll.style.display = 'block';
-        btnScroll.style.position = 'fixed';
-        btnScroll.style.bottom = '80px';
-        btnScroll.style.right = '40px';
-  
-      } else {
-        btnScroll.style.display = 'none';
-      }
-  
-    }, { passive: true })
-  
-    let links = document.querySelectorAll('.hero__link');
-  
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        window.scroll({ behavior: 'smooth' })
-      })
-    })
-  
-    // -----------tabs------------
-  
-    let jsTriggers = document.querySelectorAll('.js-tab-trigger'),
-      jsContents = document.querySelectorAll('.js-tab-content');
-  
-    jsTriggers.forEach(function (trigger) { // 1
-      trigger.addEventListener('click', function () { // 2
-        // клик!
-        let id = this.getAttribute('data-tab'), // 1
-          content = document.querySelector('.js-tab-content[data-tab="' + id + '"]'), // 2
-          activeTrigger = document.querySelector('.js-tab-trigger.active'), // 3
-          activeContent = document.querySelector('.js-tab-content.active'); // 4
-  
-        activeTrigger.classList.remove('active'); // 1
-        trigger.classList.add('active'); // 2
-  
-        activeContent.classList.remove('active'); // 3
-        content.classList.add('active'); // 4
-      });
-    });
-  } catch (error) {
-    console.log(error)
-  }
-
-// })
-
 document.addEventListener('DOMContentLoaded', () => {
 
   try {
@@ -357,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 try {
-  let events = document.querySelectorAll('.events__item');
+  let events = document.querySelectorAll('.events .events__item');
   console.log(events.length)
   let numShow = document.querySelector('.events-show');
   // document.querySelector('.events__btns_list').innerHTML = '';
@@ -525,8 +379,7 @@ try {
   });
 
   document.getElementById('category').addEventListener('input', (e) => {
-    cleanList()
-    console.log(e.target.value)
+    cleanList();
     let categories = document.querySelectorAll('.lectures__online');
     
     categories.forEach(cat => {
@@ -537,16 +390,56 @@ try {
           
           if(events[i] == parents.parentNode) {
             events[i].style.display = 'flex';
-          } 
-        }
-      }
+          } ;
+        };
+      };
       if(e.target.value.includes('all')) {
-        console.log('ok')
-        createVisibleCards(value)
-      }
+        createVisibleCards(value);
+      };
+    });
+    return
+  });
+
+  document.querySelector('.events-search').addEventListener('input', (e) => {
+    cleanList();
+    let elements = document.querySelectorAll('.lectures__info');
+
+    elements.forEach(elem => {
+      if(e.target.value === '') {
+        createVisibleCards(value);
+        return
+      };
+      if(elem.textContent.toLowerCase().includes(e.target.value)) {
+        let parents = elem.parentNode;
+        
+        for(let i = 0; i < events.length; i++) {
+          if(events[i] == parents.parentNode) {
+            events[i].style.display = 'flex';
+          } ;
+        };
+        return
+      };
+      
+    })
+  });
+
+  function clickOnEventsCard() {
+    
+    
+    let events = document.querySelectorAll('.lectures__item');
+    events.forEach(event => {
+      event.addEventListener('click', e => {
+        window.location.href='event.html';
+      })
+      event.addEventListener('keyup', e => {
+        if (e.code == 'Enter') {
+          window.location.href='event.html';
+        }
+      })
     })
     return
-  })
+  }
+  clickOnEventsCard();
 
   function cleanBtnsPages() {
     btnsPages = document.querySelectorAll('.events__page');
@@ -873,4 +766,208 @@ if (typeof document !== 'undefined') {
   // Apply the polyfill to the global document, so that no JavaScript
   // coordination is required to use the polyfill in the top-level document:
   applyFocusVisiblePolyfill(document);
+}
+
+// document.addEventListener('DOMContentLoaded', (e) => {
+
+  try {
+    
+    const swiper = new Swiper('.team__swiper', {
+      // Optional parameters
+      slidesPerView: 4,
+      spaceBetween: 30,
+      direction: 'horizontal',
+      loop: false,
+  
+      navigation: {
+        nextEl: '.team__container .swiper-button-next',
+        prevEl: '.team__container .swiper-button-prev',
+      },
+      a11y: {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        }
+      }
+  
+    });
+    // clickOnEventsCard();
+    let events = document.querySelectorAll('.lectures__item');
+    events.forEach(event => {
+      event.addEventListener('click', e => {
+        window.location.href='event.html';
+      })
+      event.addEventListener('keyup', e => {
+        if (e.code == 'Enter') {
+          window.location.href='event.html';
+        }
+      })
+    })
+
+    let teams = document.querySelectorAll('.team__img');
+    let socials = document.querySelectorAll('.team__social');
+  
+    for (let i = 0; i < teams.length; i++) {
+      let team = teams[i];
+      let soc = socials[i];
+  
+      team.addEventListener('click', () => {
+        soc.classList.toggle('show');
+      })
+  
+      soc.addEventListener('click', () => {
+        soc.classList.toggle('show')
+      })
+    }
+  
+  
+    const swiper1 = new Swiper('.say__swiper', {
+  
+      slidesPerView: 1,
+      pagination: {
+        el: '.say__swiper .swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.say .swiper-button-next',
+        prevEl: '.say .swiper-button-prev',
+      },
+      a11y: {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+      },
+  
+    });
+  
+    // -------link-----
+    let linksCourses = document.querySelectorAll('.featured__item');
+    // let teacherLocal = localStorage.getItem(teacherLocal);
+  
+    linksCourses.forEach(linkCourse => {
+      linkCourse.addEventListener('click', (e) => {
+        let teacher = linkCourse.querySelector('.featured__teacher');
+        // localStorage.setItem(teacher, teacherLocal);
+        // console.log(teacher)
+        // e.preventDefault();
+        window.location.href='course.html';
+        
+      })
+    })
+
+    // // -----------burger-------------
+    document.querySelector('.header-burger').addEventListener('click', () => {
+      document.querySelector('.header__item').classList.remove('active');
+      document.body.classList.toggle('stop-scrolling');
+      document.querySelector('.header-burger').classList.toggle('active');
+      document.querySelector('.header__nav').classList.toggle('active');
+      if (document.documentElement.clientWidth <= 575) {
+        document.querySelector('.header__wrap').classList.toggle('active');
+      }
+    })
+  
+    // ------------scroll--------------
+    const btnScroll = document.querySelector('.btn__scroll');
+    window.addEventListener('scroll', () => {
+      let scrollNum = window.pageYOffset;
+      document.querySelector('.footer__go');
+      document.querySelector('.footer__link_logo');
+      if (scrollNum >= '100') {
+        btnScroll.style.display = 'block';
+        btnScroll.style.position = 'fixed';
+        btnScroll.style.bottom = '80px';
+        btnScroll.style.right = '40px';
+  
+      } else {
+        btnScroll.style.display = 'none';
+      }
+  
+    }, { passive: true })
+  
+    let links = document.querySelectorAll('.hero__link');
+  
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        window.scroll({ behavior: 'smooth' })
+      })
+    })
+  
+    // -----------tabs------------
+  
+    let jsTriggers = document.querySelectorAll('.js-tab-trigger'),
+      jsContents = document.querySelectorAll('.js-tab-content');
+  
+    jsTriggers.forEach(function (trigger) { // 1
+      trigger.addEventListener('click', function () { // 2
+        // клик!
+        let id = this.getAttribute('data-tab'), // 1
+          content = document.querySelector('.js-tab-content[data-tab="' + id + '"]'), // 2
+          activeTrigger = document.querySelector('.js-tab-trigger.active'), // 3
+          activeContent = document.querySelector('.js-tab-content.active'); // 4
+  
+        activeTrigger.classList.remove('active'); // 1
+        trigger.classList.add('active'); // 2
+  
+        activeContent.classList.remove('active'); // 3
+        content.classList.add('active'); // 4
+      });
+    });
+    
+    
+  } catch (error) {
+    console.log(error)
+  }
+
+// })
+
+try {
+  let allEvents = document.querySelectorAll('.interested .events__item');
+  console.log(allEvents.length)
+  allEvents.forEach(event => {
+    event.style.display = 'flex';
+    event.style.width = '390px';
+    return
+  })
+
+  const swiperInterested = new Swiper('.interested__swiper', {
+  
+    slidesPerView: 3,
+    direction: 'horizontal',
+    // slidesPerGroup: 3,
+    loopFillGroupWithBlank: false,
+    spaceBetween: 30,
+    navigation: {
+      nextEl: '.interested .swiper-button-next',
+      prevEl: '.interested .swiper-button-prev',
+    },
+    a11y: {
+      prevSlideMessage: 'Previous slide',
+      nextSlideMessage: 'Next slide',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+      }
+    }
+  });
+
+  
+  // for(let i = 0; i < allEvents.length; i++) {
+  //   allEvents[i].style.display = 'flex'
+  // }
+
+
+
+
+} catch (error) {
+  console.log(error)
 }

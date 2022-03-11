@@ -4,12 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CreateX - events</title>
+  <title>CreateX - event</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="apple-touch-favicon.png">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+  />
 
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script> 
   <link rel="stylesheet" href="./styles/main.css">
 
   <script defer src="./js/app.js"></script>
@@ -51,60 +54,267 @@
   </div>
 </div>
   </header>
+
   <main>
-    <section class="events">
-      <div class="container events__container">
-        <span class="events__subtitle subtitle">Our events</span>
-        <h2 class="events__title title">Lectures, workshops &amp;&nbsp;master&#8209;classes</h2>
-        <div class="events__choice__wrap">
-          <ul class="events__choice_list">
-            <li class="events__choice_item events-item01">
-              <span class="events__choice-what">Event category</span>
-              <select class="events__select" name="category" id="category">
-                <option class="events__option" value="all">all themes</option>
-                <option class="events__option" value="master-class">master-class</option>
-                <option class="events__option" value="lecture">lecture</option>
-                <option class="events__option" value="workshop">workshop</option>
-              </select>
-            </li>
-            <li class="events__choice_item events-item02">
-              <span class="events__choice-what">Sort by</span>
-              <select class="events__select" name="sort" id="sort">
-                <option class="events__option" value="newest">newest</option>
-                <option class="events__option" value="oldest">oldest</option>
-              </select>
-            </li>
-            <li class="events__choice_item events-item03">
-              <span class="events__choice-what">Show</span>
-              <input class="events__input events-show" type="number" name="show" id="Show" placeholder="9">
-              <span class="events__info">events per page</span>
-            </li>
-            <li class="events__choice_item events-item04">
-              <input class="events__input events-search" type="text" placeholder="Search event...">
-            </li>
-            
-          </ul>
-          <div class="events__wrap_btns">
-            <button class="events__btn events-row active">
-              <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833334 2.91634C0.833334 1.76575 1.76607 0.833008 2.91667 0.833008H17.0833C18.2339 0.833008 19.1667 1.76575 19.1667 2.91634V7.08301C19.1667 8.2336 18.2339 9.16634 17.0833 9.16634H2.91667C1.76607 9.16634 0.833334 8.2336 0.833334 7.08301V2.91634ZM2.91667 2.49967C2.68655 2.49967 2.5 2.68622 2.5 2.91634V7.08301C2.5 7.31313 2.68655 7.49967 2.91667 7.49967H17.0833C17.3135 7.49967 17.5 7.31313 17.5 7.08301V2.91634C17.5 2.68622 17.3135 2.49967 17.0833 2.49967H2.91667Z" fill="#424551"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833334 12.9163C0.833334 11.7657 1.76607 10.833 2.91667 10.833H17.0833C18.2339 10.833 19.1667 11.7657 19.1667 12.9163V17.083C19.1667 18.2336 18.2339 19.1663 17.0833 19.1663H2.91667C1.76607 19.1663 0.833334 18.2336 0.833334 17.083V12.9163ZM2.91667 12.4997C2.68655 12.4997 2.5 12.6862 2.5 12.9163V17.083C2.5 17.3131 2.68655 17.4997 2.91667 17.4997H17.0833C17.3135 17.4997 17.5 17.3131 17.5 17.083V12.9163C17.5 12.6862 17.3135 12.4997 17.0833 12.4997H2.91667Z" fill="#424551"/>
-                </svg>
-            </button>
-            <button class="events__btn events-squares">
-              <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833333 2.91634C0.833333 1.76575 1.76607 0.833008 2.91667 0.833008H7.08333C8.23393 0.833008 9.16667 1.76575 9.16667 2.91634V7.08301C9.16667 8.2336 8.23393 9.16634 7.08333 9.16634H2.91667C1.76607 9.16634 0.833333 8.2336 0.833333 7.08301V2.91634ZM2.91667 2.49967C2.68655 2.49967 2.5 2.68622 2.5 2.91634V7.08301C2.5 7.31313 2.68655 7.49967 2.91667 7.49967H7.08333C7.31345 7.49967 7.5 7.31313 7.5 7.08301V2.91634C7.5 2.68622 7.31345 2.49967 7.08333 2.49967H2.91667Z" fill="#424551"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.833333 12.9163C0.833333 11.7657 1.76607 10.833 2.91667 10.833H7.08333C8.23393 10.833 9.16667 11.7657 9.16667 12.9163V17.083C9.16667 18.2336 8.23393 19.1663 7.08333 19.1663H2.91667C1.76607 19.1663 0.833333 18.2336 0.833333 17.083V12.9163ZM2.91667 12.4997C2.68655 12.4997 2.5 12.6862 2.5 12.9163V17.083C2.5 17.3131 2.68655 17.4997 2.91667 17.4997H7.08333C7.31345 17.4997 7.5 17.3131 7.5 17.083V12.9163C7.5 12.6862 7.31345 12.4997 7.08333 12.4997H2.91667Z" fill="#424551"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8333 2.91634C10.8333 1.76575 11.7661 0.833008 12.9167 0.833008H17.0833C18.2339 0.833008 19.1667 1.76575 19.1667 2.91634V7.08301C19.1667 8.2336 18.2339 9.16634 17.0833 9.16634H12.9167C11.7661 9.16634 10.8333 8.2336 10.8333 7.08301V2.91634ZM12.9167 2.49967C12.6865 2.49967 12.5 2.68622 12.5 2.91634V7.08301C12.5 7.31313 12.6865 7.49967 12.9167 7.49967H17.0833C17.3135 7.49967 17.5 7.31313 17.5 7.08301V2.91634C17.5 2.68622 17.3135 2.49967 17.0833 2.49967H12.9167Z" fill="#424551"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M10.8333 12.9163C10.8333 11.7657 11.7661 10.833 12.9167 10.833H17.0833C18.2339 10.833 19.1667 11.7657 19.1667 12.9163V17.083C19.1667 18.2336 18.2339 19.1663 17.0833 19.1663H12.9167C11.7661 19.1663 10.8333 18.2336 10.8333 17.083V12.9163ZM12.9167 12.4997C12.6865 12.4997 12.5 12.6862 12.5 12.9163V17.083C12.5 17.3131 12.6865 17.4997 12.9167 17.4997H17.0833C17.3135 17.4997 17.5 17.3131 17.5 17.083V12.9163C17.5 12.6862 17.3135 12.4997 17.0833 12.4997H12.9167Z" fill="#424551"/>
-                </svg>
-                
-            </button>
+    <section class="hero course-hero event">
+      <div class="container hero__container course-hero__container">
+  <span class="course-hero__subtitle subtitle event__subtitle">Online lecture</span>
+  <h2 class="course-hero__title title">Formation of the organizational structure of the company in the face of uncertainty</h2>
+</div>
+
+    </section>
+    <section class="talk">
+      <div class="container about-course__container">
+  <div class="talk__wrap">
+    <h2 class="talk__title title">We will talk about:</h2>
+    <ul class="course-program__list">
+      <li class="course-program__item">
+        <div class="course-program__icons show">
+          <span class="course-program__icon icon-span1"></span>
+          <span class="course-program__icon icon-span2"></span>
+        </div>
+        <div class="course-program__wrap">
+          <button class="course-program__btn show"><span class="course-program__btn_span">Theme 1.</span>
+            Aliquet lectus urna viverra in odio.
+          </button>
+          <div class="course-program__content show">
+            <p class="course-program__text">
+              Nulla amet, sagittis potenti rhoncus sit. Elit lectus nec pulvinar aliquet donec enim, ornare. Lacus facilisi curabitur turpis varius mauris. Nisi, tempus risus, odio mi suscipit sed. Curabitur faucibus porttitor quis sem lacus, arcu feugiat facilisis. Commodo nunc orci vitae accumsan id.
+            </p>
           </div>
         </div>
-        <div class="events__box">
-          <ul class="lectures__list events__list">
-            <li class="lectures__item events__item" tabindex="0">
+      </li>
+      <li class="course-program__item">
+        <div class="course-program__icons">
+          <span class="course-program__icon icon-span1"></span>
+          <span class="course-program__icon icon-span2"></span>
+        </div>
+        <div class="course-program__wrap">
+          <button class="course-program__btn">
+            <span class="course-program__btn_span">Theme 2.</span>
+            Orci commodo, viverra orci mollis ut euismod.
+          </button>
+          <div class="course-program__content">
+            <p class="course-program__text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit doloribus incidunt, cumque aspernatur ullam consectetur accusantium explicabo quidem eos perferendis? Amet exercitationem atque reiciendis id nisi? Dolorum, aliquid? Corporis, veniam?
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="course-program__item">
+        <div class="course-program__icons">
+          <span class="course-program__icon icon-span1"></span>
+          <span class="course-program__icon icon-span2"></span>
+        </div>
+        <div class="course-program__wrap">
+          <button class="course-program__btn">
+            <span class="course-program__btn_span">Theme 3.</span>
+            Sagittis vitae facilisi rutrum amet mauris quisque vel.
+          </button>
+          <div class="course-program__content">
+            <p class="course-program__text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit doloribus incidunt, cumque aspernatur ullam consectetur accusantium explicabo quidem eos perferendis? Amet exercitationem atque reiciendis id nisi? Dolorum, aliquid? Corporis, veniam?
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="course-program__item">
+        <div class="course-program__icons">
+          <span class="course-program__icon icon-span1"></span>
+          <span class="course-program__icon icon-span2"></span>
+        </div>
+        <div class="course-program__wrap">
+          <button class="course-program__btn">
+            <span class="course-program__btn_span">Theme 4.</span>
+            In id dolor quis nunc, urna hendrerit pharetra.
+          </button>
+          <div class="course-program__content">
+            <p class="course-program__text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit doloribus incidunt, cumque aspernatur ullam consectetur accusantium explicabo quidem eos perferendis? Amet exercitationem atque reiciendis id nisi? Dolorum, aliquid? Corporis, veniam?
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="about-course__right">
+    <div class="about-course__info about-info">
+      <ul class="about-info__list">
+        <li class="about-info__item">
+          <span class="about-info__name">Time</span>
+          <span class="about-info__session">August 5, 11:00 – 14:00</span>
+          <p class="about-info__text">Metus turpis sit lorem lacus, in elit tellus lacus.</p>
+        </li>
+        <li class="about-info__item">
+          <span class="about-info__name">Price</span>
+          <span class="about-info__session">Free</span>
+          <p class="about-info__text">Nulla sem adipiscing adipiscing felis fringilla. Adipiscing mauris quam ac elit tristique dis.</p>
+        </li>
+        <li class="about-info__item">
+          <a class="talk__link" href="#">Event on Facebook</a>
+        </li>
+      </ul>
+      <button class="about-info__btn btn btn-color">Join the course</button>
+    </div>
+  </div>
+</div>
+    </section>
+    <section class="course-wrapper">
+      <section class="course-curator">
+        <div class="container course-curator__container">
+  <img class="course-curator__img" src="images/speaker-Kathryn_Murphy.jpg" alt="Photo speaker">
+  <div class="course-curator__wrap">
+    <span class="course-curator__subtitle subtitle">Speaker</span>
+    <h2 class="course-curator__title title">Kathryn Murphy</h2>
+    <span class="course-curator__position">Analyst and Marketing specialist in IT company</span>
+    
+    <p class="course-curator__text">
+      Mattis adipiscing aliquam eu proin metus a iaculis faucibus. Tempus curabitur venenatis, vulputate venenatis fermentum ante. Nisl, amet id semper semper quis commodo, consequat. Massa rhoncus sit morbi odio. Sit maecenas nibh consectetur vel diam. Sem vulputate molestie laoreet at massa sed pharetra. Ac commodo platea id habitasse proin. Nullam sit nec ipsum posuere non. Nam vel aliquam tristique sollicitudin interdum quam. 
+    </p>
+    <ul class="sertificate__list speaker__list">
+      <li class="sertificate__item speaker__item">
+        <a class="sertificate__link" href="#">
+          <img class="sertificate__img speaker__img" src="images/sertificate/del_mar.png" alt="del mar">
+        </a>
+      </li>
+      <li class="sertificate__item speaker__item">
+        <a class="sertificate__link" href="#">
+          <img class="sertificate__img speaker__img" src="images/sertificate/sentinal.png" alt="del mar">
+        </a>
+      </li>
+      <li class="sertificate__item speaker__item">
+        <a class="sertificate__link" href="#">
+          <img class="sertificate__img speaker__img" src="images/sertificate/national.png" alt="del mar">
+        </a>
+      </li>
+    </ul>
+    <ul class="course-curator__social">
+      <li class="course-curator__item">
+        <a class="course-curator__link_social" href="#">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.5628 1.00458L14.7856 1C11.6654 1 9.64903 3.12509 9.64903 6.41423V8.91055H6.85662C6.61532 8.91055 6.41992 9.1115 6.41992 9.35937V12.9763C6.41992 13.2241 6.61554 13.4249 6.85662 13.4249H9.64903V22.5514C9.64903 22.7993 9.84443 23 10.0857 23H13.729C13.9703 23 14.1657 22.799 14.1657 22.5514V13.4249H17.4307C17.672 13.4249 17.8674 13.2241 17.8674 12.9763L17.8688 9.35937C17.8688 9.24036 17.8226 9.12638 17.7409 9.04215C17.6591 8.95793 17.5477 8.91055 17.4318 8.91055H14.1657V6.79439C14.1657 5.77728 14.4017 5.26094 15.6915 5.26094L17.5624 5.26025C17.8035 5.26025 17.9989 5.0593 17.9989 4.81166V1.45317C17.9989 1.20576 17.8037 1.00504 17.5628 1.00458Z" fill="#787A80"/>
+            </svg>
+        </a>
+      </li>
+      <li class="course-curator__item">
+        <a class="course-curator__link_social" href="#">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_2492_17701)">
+            <path d="M12.3652 15.1437C12.3652 13.1724 11.486 11.7153 9.66971 11.1692C10.9949 10.4961 11.6861 9.47637 11.6861 7.8902C11.6861 4.76268 9.49368 4 6.96423 4H0V19.7027H7.15926C9.84374 19.7027 12.3652 18.3341 12.3652 15.1437ZM3.24657 6.68058H6.29311C7.46432 6.68058 8.51851 7.03045 8.51851 8.47475C8.51851 9.8081 7.69836 10.3446 6.53816 10.3446H3.24657V6.68058ZM3.24557 17.036V12.7116H6.7842C8.21345 12.7116 9.11761 13.3452 9.11761 14.9538C9.11761 16.54 8.03842 17.036 6.71719 17.036H3.24557Z" fill="#787A80"/>
+            <path d="M18.7993 20C21.3537 20 23.008 18.7765 23.8041 16.1759H21.2117C20.9326 17.1466 19.7824 17.6597 18.8903 17.6597C17.169 17.6597 16.2648 16.5877 16.2648 14.7658H23.9792C24.2232 11.1198 22.3189 8.01257 18.7983 8.01257C15.5387 8.01257 13.3263 10.6174 13.3263 14.0297C13.3263 17.5711 15.4227 20 18.7993 20ZM18.7073 10.3721C20.1825 10.3721 20.9246 11.2937 21.0487 12.8009H16.2688C16.3658 11.3065 17.299 10.3721 18.7073 10.3721Z" fill="#787A80"/>
+            <path d="M15.6701 4.82507H21.6591V6.37177H15.6701V4.82507Z" fill="#787A80"/>
+            </g>
+            <defs>
+            <clippath id="clip0_2492_17701">
+            <rect width="24" height="24" fill="white"/>
+            </clippath>
+            </defs>
+            </svg>
+        </a>
+      </li>
+      <li class="course-curator__item">
+        <a class="course-curator__link_social" href="#">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 5.77233C21.7271 6.10027 20.8978 6.32267 20.0264 6.42196C20.9161 5.91181 21.5972 5.10263 21.92 4.1414C21.0854 4.61383 20.1642 4.95688 19.1826 5.14285C18.3966 4.33994 17.2785 3.83984 16.0384 3.83984C13.6593 3.83984 11.7303 5.68691 11.7303 7.9637C11.7303 8.2866 11.7683 8.60199 11.8418 8.90357C8.26201 8.73141 5.08768 7.08917 2.96314 4.59372C2.59176 5.20189 2.38049 5.91053 2.38049 6.66697C2.38049 8.09814 3.14161 9.36093 4.2964 10.0997C3.5904 10.0771 2.92639 9.89116 2.34508 9.58205V9.63357C2.34508 11.6314 3.83056 13.2988 5.80024 13.6783C5.43936 13.7713 5.05882 13.8228 4.66514 13.8228C4.38696 13.8228 4.11794 13.7964 3.85417 13.7461C4.40267 15.3859 5.99315 16.5783 7.87756 16.611C6.40388 17.7167 4.54573 18.3739 2.52749 18.3739C2.17976 18.3739 1.83724 18.3537 1.5 18.3173C3.40671 19.4896 5.67036 20.1732 8.10327 20.1732C16.028 20.1732 20.3597 13.8881 20.3597 8.43741L20.3453 7.90341C21.1917 7.32537 21.9239 6.59912 22.5 5.77233Z" fill="#787A80"/>
+            </svg>
+        </a>
+      </li>
+      <li class="course-curator__item">
+        <a class="course-curator__link_social" href="#">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21.995 22L22 21.9992V14.6642C22 11.0758 21.2275 8.31167 17.0325 8.31167C15.0158 8.31167 13.6625 9.41833 13.11 10.4675H13.0517V8.64667H9.07416V21.9992H13.2158V15.3875C13.2158 13.6467 13.5458 11.9633 15.7017 11.9633C17.8258 11.9633 17.8575 13.95 17.8575 15.4992V22H21.995Z" fill="#787A80"/>
+            <path d="M2.32999 8.6475H6.47666V22H2.32999V8.6475Z" fill="#787A80"/>
+            <path d="M4.40167 2C3.07583 2 2 3.07583 2 4.40167C2 5.7275 3.07583 6.82583 4.40167 6.82583C5.7275 6.82583 6.80333 5.7275 6.80333 4.40167C6.8025 3.07583 5.72667 2 4.40167 2Z" fill="#787A80"/>
+            </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+      </section>
+      <section class="benefit-from">
+        <div class="container benefit-from__container">
+          <div class="benefit-from__left">
+            <span class="benefit-from__subtitle subtitle">For whom?</span>
+            <h2 class="benefit-from__title title">Who will benefit from the event:</h2>
+          </div>
+          <div class="benefit-from__right">
+            <ul class="benefit-from__list about-course__list">
+              <li class="benefit-from__item about-course__item">
+                Specialists with more than 1 year of active work experience
+              </li>
+              <li class="benefit-from__item about-course__item">
+                Mobile app designers who want to improve their skills in solving business problems, creating and testing human-centered interfaces
+              </li>
+              <li class="benefit-from__item about-course__item">
+                Professional designers who want to feel more confident in UX
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="miss-events">
+        <div class="container miss-events__container">
+          <img src="images/page_event/subscr_illustration.svg" alt="" tabindex="-1">
+          <div class="miss-events__wrap">
+            <h2 class="miss-events__title">Don’t want to miss the best events? Subscribe to our newsletter!</h2>
+            <form class="miss-events__form">
+              <label class="miss-events__label">
+                <input class="miss-events__input" type="text" placeholder="Your working email">
+                <button class="btn btn-color miss-events__btn">Subscribe</button>
+              </label>
+              <label class="miss-events__checkbox" for="check-agree">
+                <input class="miss-events__check" id="check-agree" type="checkbox" value="yes" checked>
+                <span class="miss-events__check_text">I agree to receive communications from Createx Online School</span>
+              </label>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="request">
+        <div class="container request__container">
+          <div class="request__wrap course-registration__wrap">
+            <span class="request__subtitle subtitle">Don’t miss the event</span>
+            <h2 class="course-registration__title title">Leave a request</h2>
+            <form class="request__form discount__form course-registration__form" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+              <ul class="discount__form_list course-registration__list">
+                <li class="discount__form_item course-registration__item">
+                  <label class="discount__form_label course-registration__label">Full name</label>
+                  <input class="discount__form_input course-registration__input" type="text" name="full name" placeholder="Your full name">
+                </li>
+                <li class="discount__form_item course-registration__item">
+                  <label class="discount__form_label course-registration__label">Email</label>
+                  <input class="discount__form_input course-registration__input" type="email" name="email" placeholder="Your working email">
+                </li>
+                <li class="discount__form_item course-registration__item">
+                  <label class="discount__form_label course-registration__label">Phone</label>
+                  <input class="discount__form_input course-registration__input" type="text" name="phone" placeholder="Your phone number">
+                </li>
+              </ul>
+              <button class="request__btn discount__btn btn btn-color course-registration__btn">Join the course</button>
+            </form>
+            <span class="request__span">* You will receive a link to the online lecture in an email after registration.</span>
+          </div>
+          <img class="request__img" src="images/page_event/live_illustration.png" tabindex="-1">
+        </div>
+      </section>
+    </section>
+    <section class="interested">
+      <div class="container interested__container team__container check-courses__container">
+        <div class="team__wrap">
+          <div class="team__info">
+            <span class="check-courses__subtitle subtitle">Check other online events</span>
+            <h2 class="check-courses__title title">You may be interested in</h2>
+          </div>
+          <div class="team__btn check-courses__btns">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+        <div class="interested__swiper swiper events__box changed">
+          <ul class="interested__list lectures__list events__list check-courses__wrapper featured__list swiper-wrapper">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">05</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">August </span>
@@ -116,7 +326,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">24</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -128,7 +338,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">16</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -140,7 +350,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">10</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -152,7 +362,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">27</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">June</span>
@@ -164,7 +374,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">15</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">June</span>
@@ -176,7 +386,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">02</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">June</span>
@@ -188,7 +398,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">29</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">May</span>
@@ -200,7 +410,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">18</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">May</span>
@@ -212,7 +422,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">05</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">August </span>
@@ -224,7 +434,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">24</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -236,7 +446,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">16</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -248,7 +458,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">05</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">August </span>
@@ -260,7 +470,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">24</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -272,7 +482,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">16</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -284,7 +494,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">05</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">August </span>
@@ -296,7 +506,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">24</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -308,7 +518,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">16</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -320,7 +530,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">05</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">August </span>
@@ -332,7 +542,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">24</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -344,7 +554,7 @@
               </div>
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
-            <li class="lectures__item events__item" tabindex="0">
+            <li class="lectures__item events__item swiper-slide">
               <span class="lectures__date">16</span>
               <div class="lectures__wrap">
                 <span class="lectures__month">July </span>
@@ -357,26 +567,15 @@
               <a class="lectures__btn btn btn-uncolor" href="event.html">View more</a>
             </li>
           </ul>
-          <div class="events__box_pages">
-            <button class=" events-prev" disabled="true"></button>
-            <ul class="events__btns_list">
-            </ul>
-            <button class=" events-next"></button>
-          </div>
+        </div>
+        <div class="check-courses__box">
+          <span class="check-courses__question">Do you want more?</span>
+          <a href="events.html" class="check-courses__btn btn btn-color">Explore all events</a>
         </div>
       </div>
     </section>
-    <section id="subscribe" class="subscribe">
-      <div class="container subscribe__container">
-  <span class="subscribe__subtitle subtitle">Don't miss anything</span>
-  <h2 class="subscribe__title title">Subscribe to the Createx School announcements</h2>
-  <form class="subscribe__form">
-    <input class="subscribe__input" type="email" placeholder="Your working email">
-    <button class="subscribe__btn btn btn-color">Subscribe</button>
-  </form>
-</div>
-    </section>
   </main>
+
   <footer class="footer">
     <div class="footer__top">
   <div class="container footer__container">
