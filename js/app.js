@@ -1,60 +1,62 @@
-try {
-  const list = document.querySelector('.journal__blog');
-  let btnsBlog = document.querySelectorAll('.journal__btn');
-  let listBlogs = document.querySelectorAll('.journal__blog .posts__item');
+document.addEventListener('DOMContentLoaded', e => {
+  try {
+    const list = document.querySelector('.journal__blog');
+    let btnsBlog = document.querySelectorAll('.journal__btn');
+    let listBlogs = document.querySelectorAll('.journal__blog .posts__item');
 
-  btnsBlog.forEach(btn => {
-    btn.addEventListener('click', e => {
-      let text = e.target.textContent.split('');
-      text.pop();
-      text = text.join('');
-      
-      listBlogs.forEach( list => {
-        list.style.display = 'none';
-      });
-
-      searchActiveBtns();
-      e.target.classList.toggle('active');
-
-      if(text.toLowerCase().includes('al')) {
-        listBlogs.forEach( item => {
-          item.style.display = 'block';
-          item.style.maxWidth = '100%';
-          list.style.display = 'grid';
-        })
-        return
-      }
-
-      let elems = document.querySelectorAll(`.posts__view.${text.toLowerCase()}`);
-      elems.forEach(elem => {
-        list.style.display = 'flex';
-        list.style.justifyContent = 'space-between';
-        list.style.flexWrap = 'wrap';
-        let parent = elem.parentElement;
-        parent.style.display = 'block';
-        parent.style.maxWidth = '390px';
+    btnsBlog.forEach(btn => {
+      btn.addEventListener('click', e => {
+        let text = e.target.textContent.split('');
+        text.pop();
+        text = text.join('');
         
+        listBlogs.forEach( list => {
+          list.style.display = 'none';
+        });
+
+        searchActiveBtns();
+        e.target.classList.toggle('active');
+
+        if(text.toLowerCase().includes('al')) {
+          listBlogs.forEach( item => {
+            item.style.display = 'block';
+            item.style.maxWidth = '100%';
+            list.style.display = 'grid';
+          })
+          return
+        }
+
+        let elems = document.querySelectorAll(`.posts__view.${text.toLowerCase()}`);
+        elems.forEach(elem => {
+          list.style.display = 'flex';
+          list.style.justifyContent = 'space-between';
+          list.style.flexWrap = 'wrap';
+          let parent = elem.parentElement;
+          parent.style.display = 'block';
+          parent.style.maxWidth = '390px';
+          
+        })
+
       })
-
     })
-  })
 
-  function searchActiveBtns() {
-    for (let i = 0; i < btnsBlog.length; i++) {
-      if (btnsBlog[i].classList.contains('active')) {
-        btnsBlog[i].classList.remove('active');
+    function searchActiveBtns() {
+      for (let i = 0; i < btnsBlog.length; i++) {
+        if (btnsBlog[i].classList.contains('active')) {
+          btnsBlog[i].classList.remove('active');
+        }
       }
     }
+
+
+
+
+
+
+  } catch (error) {
+    console.log(error);
   }
-
-
-
-
-
-
-} catch (error) {
-  console.log(error);
-}
+});
 document.addEventListener('DOMContentLoaded', () => {
 
   try {
@@ -142,7 +144,6 @@ document.addEventListener('DOMContentLoaded', e => {
     let btns = document.querySelectorAll('.online__btn');
 
     function hideElements() {
-      let courses = document.querySelectorAll('.online__item');
       for (let k = 9; k < courses.length; k++) {
         let course = courses[k];
         course.style.display = 'none';
@@ -272,259 +273,261 @@ document.addEventListener('DOMContentLoaded', e => {
   }
 });
 
-try {
-  let events = document.querySelectorAll('.events .events__item');
-  console.log(events.length)
-  let numShow = document.querySelector('.events-show');
-  // document.querySelector('.events__btns_list').innerHTML = '';
-  cleanList();
-  let value = 9;
-  let pages;
-  let btnsPages;
+document.addEventListener('DOMContentLoaded', e => {
+  try {
+    let events = document.querySelectorAll('.events .events__item');
+    console.log(events.length)
+    let numShow = document.querySelector('.events-show');
+    // document.querySelector('.events__btns_list').innerHTML = '';
+    cleanList();
+    let value = 9;
+    let pages;
+    let btnsPages;
 
-  function createVisibleCards(value) {
-    for (let i = 0; i < value; i++) {
-      events[i].style.display = 'flex';
-    };
-    return
-  }
-  createVisibleCards(value)
-  
-  
-  function createNumPages(value) {
-    pages = Math.ceil(events.length / Number(value));
-    for (let k = 0; k < pages; k++) {
-      let li = document.createElement('li');
-      let btnPages = document.createElement('button');
-      li.classList.add('events__btns_item');
-
-      btnPages.classList.add('events__page');
-      btnPages.textContent = k + 1;
-      if (k === 0) {
-        btnPages.classList.add('active');
-      }
-
-      li.append(btnPages);
-      document.querySelector('.events__btns_list').append(li);
+    function createVisibleCards(value) {
+      for (let i = 0; i < value; i++) {
+        events[i].style.display = 'flex';
+      };
+      return
     }
-    btnsPages = document.querySelectorAll('.events__page');
+    createVisibleCards(value)
+    
+    
+    function createNumPages(value) {
+      pages = Math.ceil(events.length / Number(value));
+      for (let k = 0; k < pages; k++) {
+        let li = document.createElement('li');
+        let btnPages = document.createElement('button');
+        li.classList.add('events__btns_item');
 
-    btnsPages.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        let num = e.target.textContent;
-        cleanList();
-
-        if(Number(num) > 1) {
-          document.querySelector('.events-prev').removeAttribute('disabled');
-        } 
-        if(Number(num) === 1) {
-          document.querySelector('.events-prev').setAttribute('disabled', true);
-        }
-        if((Number(num) + 1) > btnsPages.length) {
-          document.querySelector('.events-next').setAttribute('disabled', true);
-        } else {
-          document.querySelector('.events-next').removeAttribute('disabled');
+        btnPages.classList.add('events__page');
+        btnPages.textContent = k + 1;
+        if (k === 0) {
+          btnPages.classList.add('active');
         }
 
-        for (let i = ((num - 1) * value); i < (value * num); i++) {
-          cleanBtnsPages();
-          e.target.classList.add('active');
-          events[i].style.display = 'flex';
-        }
-        return
+        li.append(btnPages);
+        document.querySelector('.events__btns_list').append(li);
+      }
+      btnsPages = document.querySelectorAll('.events__page');
+
+      btnsPages.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          let num = e.target.textContent;
+          cleanList();
+
+          if(Number(num) > 1) {
+            document.querySelector('.events-prev').removeAttribute('disabled');
+          } 
+          if(Number(num) === 1) {
+            document.querySelector('.events-prev').setAttribute('disabled', true);
+          }
+          if((Number(num) + 1) > btnsPages.length) {
+            document.querySelector('.events-next').setAttribute('disabled', true);
+          } else {
+            document.querySelector('.events-next').removeAttribute('disabled');
+          }
+
+          for (let i = ((num - 1) * value); i < (value * num); i++) {
+            cleanBtnsPages();
+            e.target.classList.add('active');
+            events[i].style.display = 'flex';
+          }
+          return
+        })
+
       })
 
-    })
-
-  }
-  createNumPages(value);
-
-  document.querySelector('.events-next').addEventListener('click', (e) => {
-    e.preventDefault();
-    btnsPages = document.querySelectorAll('.events__page');
-    document.querySelector('.events-prev').removeAttribute('disabled');
-    cleanList();
-
-    for (let i = 0; i < btnsPages.length; i++) {
-      let btn = btnsPages[i];
-
-      if (btn.classList.contains('active')) {
-        cleanBtnsPages();
-        
-        if((Number(btn.textContent) + 2) > btnsPages.length) {
-          document.querySelector('.events-next').setAttribute('disabled', true);
-        }
-        if ((Number(btn.textContent) + 1) == (Number(btnsPages[i + 1].textContent))) {
-          cleanBtnsPages();
-          btnsPages[i + 1].classList.add('active');
-        }
-
-        for (let j = (Number(btn.textContent) * value); j < (value * (Number(btn.textContent) + 1)); j++) {
-          events[j].style.display = 'flex';
-
-        }
-        return
-      }
     }
-    return
-  });
+    createNumPages(value);
 
-  document.querySelector('.events-prev').addEventListener('click', (e) => {
-    e.preventDefault();
-    btnsPages = document.querySelectorAll('.events__page');
-    document.querySelector('.events-next').removeAttribute('disabled');
-    cleanList();
+    document.querySelector('.events-next').addEventListener('click', (e) => {
+      e.preventDefault();
+      btnsPages = document.querySelectorAll('.events__page');
+      document.querySelector('.events-prev').removeAttribute('disabled');
+      cleanList();
 
-    for (let i = 0; i < btnsPages.length; i++) {
-      let btn = btnsPages[i];
+      for (let i = 0; i < btnsPages.length; i++) {
+        let btn = btnsPages[i];
 
-      if (btn.classList.contains('active')) {
-        
-        if ((Number(btn.textContent) - 1) === 1) {
-          document.querySelector('.events-prev').setAttribute('disabled', true);
-        }
-        cleanBtnsPages();
-        if ((Number(btn.textContent) - 1) == (Number(btnsPages[i - 1].textContent))) {
+        if (btn.classList.contains('active')) {
           cleanBtnsPages();
-          btnsPages[i - 1].classList.add('active');
-        }
-        for (let j = ((Number(btn.textContent) - 2) * value); j < (value * (Number(btn.textContent) - 1)); j++) {
-          events[j].style.display = 'flex';
-        }
-
-      }
-
-    }
-    return
-  })
-
-  numShow.addEventListener('input', () => {
-    value = numShow.value;
-    
-    cleanList();
-
-    if (value < 0) {
-      numShow.value = 0;
-    };
-    if (value === '') {
-      value = 9;
-    };
-    document.querySelector('.events-prev').setAttribute('disabled', true);
-    document.querySelector('.events-next').removeAttribute('disabled');
-    for (let j = 0; j < value; j++) {
-      document.querySelector('.events__btns_list').innerHTML = '';
-      createNumPages(value);
-
-      events[j].style.display = 'flex';
-    };
-
-    return value;
-  });
-
-  const btnSquares = document.querySelector('.events-squares');
-  const btnRow = document.querySelector('.events-row');
-
-  btnSquares.addEventListener('click', (e) => {
-    e.preventDefault();
-    btnRow.classList.remove('active');
-    btnSquares.classList.add('active');
-    document.querySelector('.events__box').classList.add('changed');
-  });
-
-  btnRow.addEventListener('click', (e) => {
-    e.preventDefault();
-    btnSquares.classList.remove('active');
-    btnRow.classList.add('active');
-    document.querySelector('.events__box').classList.remove('changed');
-  });
-
-  document.getElementById('category').addEventListener('input', (e) => {
-    cleanList();
-    let categories = document.querySelectorAll('.lectures__online');
-    
-    categories.forEach(cat => {
-      if(cat.textContent.includes(e.target.value)) {
-        let parents = cat.parentNode;
-        
-        for(let i = 0; i < events.length; i++) {
           
-          if(events[i] == parents.parentNode) {
-            events[i].style.display = 'flex';
-          } ;
-        };
-      };
-      if(e.target.value.includes('all')) {
-        createVisibleCards(value);
-      };
-    });
-    return
-  });
+          if((Number(btn.textContent) + 2) > btnsPages.length) {
+            document.querySelector('.events-next').setAttribute('disabled', true);
+          }
+          if ((Number(btn.textContent) + 1) == (Number(btnsPages[i + 1].textContent))) {
+            cleanBtnsPages();
+            btnsPages[i + 1].classList.add('active');
+          }
 
-  document.querySelector('.events-search').addEventListener('input', (e) => {
-    cleanList();
-    let elements = document.querySelectorAll('.lectures__info');
+          for (let j = (Number(btn.textContent) * value); j < (value * (Number(btn.textContent) + 1)); j++) {
+            events[j].style.display = 'flex';
 
-    elements.forEach(elem => {
-      if(e.target.value === '') {
-        createVisibleCards(value);
-        return
-      };
-      if(elem.textContent.toLowerCase().includes(e.target.value)) {
-        let parents = elem.parentNode;
-        
-        for(let i = 0; i < events.length; i++) {
-          if(events[i] == parents.parentNode) {
-            events[i].style.display = 'flex';
-          } ;
-        };
-        return
-      };
-      
-    })
-  });
-
-  function clickOnEventsCard() {
-    
-    
-    let events = document.querySelectorAll('.lectures__item');
-    events.forEach(event => {
-      event.addEventListener('click', e => {
-        window.location.href='event.html';
-      })
-      event.addEventListener('keyup', e => {
-        if (e.code == 'Enter') {
-          window.location.href='event.html';
+          }
+          return
         }
-      })
-    })
-    return
-  }
-  clickOnEventsCard();
-
-  function cleanBtnsPages() {
-    btnsPages = document.querySelectorAll('.events__page');
-    btnsPages.forEach(btn => {
-      btn.classList.remove('active');
-    })
-  };
-
-
-  function cleanList() {
-    events = document.querySelectorAll('.events__item');
-    events.forEach(event => {
-      event.style.display = 'none';
+      }
+      return
     });
-    return
+
+    document.querySelector('.events-prev').addEventListener('click', (e) => {
+      e.preventDefault();
+      btnsPages = document.querySelectorAll('.events__page');
+      document.querySelector('.events-next').removeAttribute('disabled');
+      cleanList();
+
+      for (let i = 0; i < btnsPages.length; i++) {
+        let btn = btnsPages[i];
+
+        if (btn.classList.contains('active')) {
+          
+          if ((Number(btn.textContent) - 1) === 1) {
+            document.querySelector('.events-prev').setAttribute('disabled', true);
+          }
+          cleanBtnsPages();
+          if ((Number(btn.textContent) - 1) == (Number(btnsPages[i - 1].textContent))) {
+            cleanBtnsPages();
+            btnsPages[i - 1].classList.add('active');
+          }
+          for (let j = ((Number(btn.textContent) - 2) * value); j < (value * (Number(btn.textContent) - 1)); j++) {
+            events[j].style.display = 'flex';
+          }
+
+        }
+
+      }
+      return
+    })
+
+    numShow.addEventListener('input', () => {
+      value = numShow.value;
+      
+      cleanList();
+
+      if (value < 0) {
+        numShow.value = 0;
+      };
+      if (value === '') {
+        value = 9;
+      };
+      document.querySelector('.events-prev').setAttribute('disabled', true);
+      document.querySelector('.events-next').removeAttribute('disabled');
+      for (let j = 0; j < value; j++) {
+        document.querySelector('.events__btns_list').innerHTML = '';
+        createNumPages(value);
+
+        events[j].style.display = 'flex';
+      };
+
+      return value;
+    });
+
+    const btnSquares = document.querySelector('.events-squares');
+    const btnRow = document.querySelector('.events-row');
+
+    btnSquares.addEventListener('click', (e) => {
+      e.preventDefault();
+      btnRow.classList.remove('active');
+      btnSquares.classList.add('active');
+      document.querySelector('.events__box').classList.add('changed');
+    });
+
+    btnRow.addEventListener('click', (e) => {
+      e.preventDefault();
+      btnSquares.classList.remove('active');
+      btnRow.classList.add('active');
+      document.querySelector('.events__box').classList.remove('changed');
+    });
+
+    document.getElementById('category').addEventListener('input', (e) => {
+      cleanList();
+      let categories = document.querySelectorAll('.lectures__online');
+      
+      categories.forEach(cat => {
+        if(cat.textContent.includes(e.target.value)) {
+          let parents = cat.parentNode;
+          
+          for(let i = 0; i < events.length; i++) {
+            
+            if(events[i] == parents.parentNode) {
+              events[i].style.display = 'flex';
+            } ;
+          };
+        };
+        if(e.target.value.includes('all')) {
+          createVisibleCards(value);
+        };
+      });
+      return
+    });
+
+    document.querySelector('.events-search').addEventListener('input', (e) => {
+      cleanList();
+      let elements = document.querySelectorAll('.lectures__info');
+
+      elements.forEach(elem => {
+        if(e.target.value === '') {
+          createVisibleCards(value);
+          return
+        };
+        if(elem.textContent.toLowerCase().includes(e.target.value)) {
+          let parents = elem.parentNode;
+          
+          for(let i = 0; i < events.length; i++) {
+            if(events[i] == parents.parentNode) {
+              events[i].style.display = 'flex';
+            } ;
+          };
+          return
+        };
+        
+      })
+    });
+
+    function clickOnEventsCard() {
+      
+      
+      let events = document.querySelectorAll('.lectures__item');
+      events.forEach(event => {
+        event.addEventListener('click', e => {
+          window.location.href='event.html';
+        })
+        event.addEventListener('keyup', e => {
+          if (e.code == 'Enter') {
+            window.location.href='event.html';
+          }
+        })
+      })
+      return
+    }
+    clickOnEventsCard();
+
+    function cleanBtnsPages() {
+      btnsPages = document.querySelectorAll('.events__page');
+      btnsPages.forEach(btn => {
+        btn.classList.remove('active');
+      })
+    };
+
+
+    function cleanList() {
+      events = document.querySelectorAll('.events__item');
+      events.forEach(event => {
+        event.style.display = 'none';
+      });
+      return
+    }
+
+
+
+
+  } catch (error) {
+    console.log(error)
   }
-
-
-
-
-} catch (error) {
-  console.log(error)
-}
+});
 /**
  * Applies the :focus-visible polyfill at the given scope.
  * A scope in this case is either the top-level Document or a Shadow Root.
@@ -830,7 +833,7 @@ if (typeof document !== 'undefined') {
   applyFocusVisiblePolyfill(document);
 }
 
-// document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
 
   try {
     
@@ -992,44 +995,46 @@ if (typeof document !== 'undefined') {
     console.log(error)
   }
 
-// })
+})
 
-try {
-  let allEvents = document.querySelectorAll('.interested__swiper .events__item');
-  console.log(allEvents.length)
-  allEvents.forEach(event => {
-    event.style.display = 'flex';
-    return
-  });
+document.addEventListener('DOMContentLoaded', e => {
+  try {
+    let allEvents = document.querySelectorAll('.interested__swiper .events__item');
+    console.log(allEvents.length)
+    allEvents.forEach(event => {
+      event.style.display = 'flex';
+      return
+    });
 
-  const swiper5 = new Swiper('.interested__swiper.swiper', {
-    // Default parameters
-    slidesPerView: 3,
-    spaceBetween: 30,
-    navigation: {
-      nextEl: '.interested__container .swiper-button-next',
-      prevEl: '.interested__container .swiper-button-prev',
-    },
-    
-    breakpoints: {
-      // when window width is >= 320px
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
+    const swiper5 = new Swiper('.interested__swiper.swiper', {
+      // Default parameters
+      slidesPerView: 3,
+      spaceBetween: 30,
+      navigation: {
+        nextEl: '.interested__container .swiper-button-next',
+        prevEl: '.interested__container .swiper-button-prev',
       },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30
+      
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30
+        }
       }
-    }
-  })
+    })
 
-  
+    
 
-} catch (error) {
-  console.log(error)
-}
+  } catch (error) {
+    console.log(error)
+  }
+});
