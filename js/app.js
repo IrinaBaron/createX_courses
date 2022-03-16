@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(error)
   }
 });
-// document.addEventListener('DOMContentLoaded', e => {
+document.addEventListener('DOMContentLoaded', e => {
 
   try {
 
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (error) {
     console.log(error);
   }
-// });
+});
 
 try {
   let events = document.querySelectorAll('.events .events__item');
