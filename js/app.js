@@ -142,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let btns = document.querySelectorAll('.online__btn');
 
     function hideElements() {
+      let courses = document.querySelectorAll('.online__item');
       for (let k = 9; k < courses.length; k++) {
         let course = courses[k];
         course.style.display = 'none';
