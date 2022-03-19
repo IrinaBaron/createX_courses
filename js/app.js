@@ -1,11 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
   try {
+
+    const swiper7 = new Swiper('.may-also__swiper', {
+      // Optional parameters
+      slidesPerView: 3,
+      spaceBetween: 30,
+      direction: 'horizontal',
+      loop: false,
+  
+      navigation: {
+        nextEl: '.may-also__container .swiper-button-next',
+        prevEl: '.may-also__container .swiper-button-prev',
+      },
+      a11y: {
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+        571: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
+      }
+  
+    });
+
+
+    let listsBlogs = document.querySelectorAll('.may-also__swiper .swiper-slide');
+
+    listsBlogs.forEach(item => {
+      item.addEventListener('click', e => {
+        window.location.href = 'blog-info.html';
+      })
+      item.addEventListener('keyup', e => {
+        if (e.code == 'Enter') {
+          window.location.href = 'blog-info.html';
+        }
+      })
+    })
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
+
+
+
+})
+document.addEventListener('DOMContentLoaded', () => {
+  try {
     const list = document.querySelector('.journal__blog');
     const inputSearchBlog = document.querySelector('.journal__input');
     let btnsBlog = document.querySelectorAll('.journal__btn');
     let selectBlog = document.querySelector('.journal__box .events__select')
     let listBlogs = document.querySelectorAll('.journal__blog .posts__item');
 
+    listBlogs.forEach(item => {
+      item.addEventListener('click', e => {
+        window.location.href = 'blog-info.html';
+      })
+      item.addEventListener('keyup', e => {
+        if (e.code == 'Enter') {
+          window.location.href = 'blog-info.html';
+        }
+      })
+    })
 
     btnsBlog.forEach(btn => {
       btn.addEventListener('click', e => {
@@ -48,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       elements.forEach(elem => {
         let parentElem = elem.parentElement;
         let parent = parentElem.parentElement;
-        if(value === elem.textContent.toLocaleLowerCase()) {
+        if (value === elem.textContent.toLocaleLowerCase()) {
           list.style.display = 'flex';
           list.style.justifyContent = 'space-between';
           list.style.flexWrap = 'wrap';
@@ -63,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let value = inputSearchBlog.value;
 
       cleanBlogList();
-      if(value == '') {
+      if (value == '') {
         listBlogs.forEach(item => {
           item.style.display = 'block';
           item.style.maxWidth = '100%';
@@ -74,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let textsSearch = document.querySelectorAll('.journal__blog .posts__list_title');
       textsSearch.forEach(text => {
-        if(text.textContent.toLowerCase().includes(value)) {
+        if (text.textContent.toLowerCase().includes(value)) {
           let parent = text.parentElement;
           list.style.display = 'flex';
           list.style.justifyContent = 'space-between';
