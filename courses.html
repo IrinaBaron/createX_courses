@@ -51,6 +51,94 @@
     <button class="header__btn btn btn-color">Get consultation</button>
     <button class="header__login btn">Log in / Register</button>  
   </div>
+  <div class="consultation">
+    <div class="modal-content">
+  <h2 class="modal__title">Get consultation</h2>
+  <form class="modal__form">
+    <div class="modal__box">
+      <label class="modal__label">Your name</label>
+      <input class="modal__input" type="text" placeholder="Your name">
+    </div>
+    <div class="modal__box">
+      <label class="modal__label">Email</label>
+      <input class="modal__input" type="text" placeholder="Your working email">
+    </div>
+    <button class="modal__btn btn btn-color">Get consultation</button>
+  </form>
+  <div class="menu__close">
+    <span class="menu__close-span close1"></span>
+    <span class="menu__close-span close2"></span>
+  </div>
+</div>
+  </div>
+  <div class="modal">
+    <div class="modal-content">
+  <h2 class="modal__title">Sign in</h2>
+  <span class="modal__subtitle">Sign in to your account using email and password provided during registration.</span>
+  <form class="modal__form">
+    <div class="modal__box">
+      <label class="modal__label">Email</label>
+      <input class="modal__input" type="text" placeholder="Your working email">
+    </div>
+    <div class="modal__box">
+      <label class="modal__label">Password</label>
+      <input class="modal__input" type="text" placeholder="Your password">
+    </div>
+    <div class="modal__wrap">
+      <label class="miss-events__checkbox" for="check-agree">
+        <input class="miss-events__check" id="check-agree" type="checkbox" value="yes" checked>
+        <span class="miss-events__check_text">Keep me signed in</span>
+      </label>
+      <a class="modal__link" href="#">Forgot password?</a>
+    </div>
+    <button class="modal__btn btn btn-color">Sign in</button>
+  </form>
+  <div class="modal__sing">
+    <span class="modal__span">Don't have an account?</span>
+    <a class="modal__sing-link" href="#">Sign up</a>
+  </div>
+  <div class="menu__close">
+    <span class="menu__close-span close1"></span>
+    <span class="menu__close-span close2"></span>
+  </div>
+  <div class="modal__social">
+    <span class="modal__subtitle">Or sign in with</span>
+    <ul class="modal__list">
+      <li class="modal__item">
+        <a class="modal__item-link" href="#">
+          <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.6359 0.837799L12.3215 0.833984C9.72134 0.833984 8.04102 2.60489 8.04102 5.34584V7.42611H5.71401C5.51293 7.42611 5.3501 7.59357 5.3501 7.80013V10.8142C5.3501 11.0208 5.51312 11.188 5.71401 11.188H8.04102V18.7935C8.04102 19 8.20386 19.1673 8.40494 19.1673H11.441C11.6421 19.1673 11.8049 18.9999 11.8049 18.7935V11.188H14.5258C14.7268 11.188 14.8897 11.0208 14.8897 10.8142L14.8908 7.80013C14.8908 7.70095 14.8524 7.60597 14.7842 7.53578C14.7161 7.46559 14.6232 7.42611 14.5267 7.42611H11.8049V5.66264C11.8049 4.81505 12.0016 4.38476 13.0764 4.38476L14.6355 4.38419C14.8364 4.38419 14.9992 4.21673 14.9992 4.01037V1.21163C14.9992 1.00545 14.8366 0.83818 14.6359 0.837799Z" fill="white"/>
+            </svg>
+        </a>
+      </li>
+      <li class="modal__item">
+        <a class="modal__item-link" href="#">
+          <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.1756 8.75219H18.4051C18.4959 9.25921 18.5413 9.74352 18.5413 10.2051C18.5413 11.8472 18.197 13.3134 17.5084 14.6037C16.8198 15.8939 15.8379 16.9022 14.5628 17.6287C13.2877 18.3552 11.8253 18.7184 10.1756 18.7184C8.98754 18.7184 7.85622 18.4895 6.78165 18.0317C5.70708 17.5739 4.78008 16.9552 4.00064 16.1758C3.2212 15.3963 2.60257 14.4693 2.14475 13.3948C1.68692 12.3202 1.45801 11.1889 1.45801 10.0008C1.45801 8.81273 1.68692 7.68141 2.14475 6.60685C2.60257 5.53228 3.2212 4.60528 4.00064 3.82584C4.78008 3.0464 5.70708 2.42777 6.78165 1.96994C7.85622 1.51212 8.98754 1.2832 10.1756 1.2832C12.4458 1.2832 14.3944 2.04372 16.0214 3.56476L13.649 5.84633C12.7183 4.94581 11.5604 4.49555 10.1756 4.49555C9.19942 4.49555 8.29702 4.74149 7.46839 5.23337C6.63976 5.72525 5.98329 6.39307 5.49898 7.23683C5.01467 8.08059 4.77251 9.00192 4.77251 10.0008C4.77251 10.9997 5.01467 11.921 5.49898 12.7648C5.98329 13.6086 6.63976 14.2764 7.46839 14.7683C8.29702 15.2601 9.19942 15.5061 10.1756 15.5061C10.834 15.5061 11.4394 15.4153 11.9918 15.2336C12.5442 15.052 12.9982 14.825 13.3539 14.5526C13.7096 14.2802 14.0198 13.9699 14.2847 13.6218C14.5496 13.2737 14.7444 12.9445 14.8693 12.6343C14.9941 12.324 15.0793 12.0289 15.1247 11.7489H10.1756V8.75219Z" fill="#787A80"/>
+            </svg>
+        </a>
+      </li>
+      <li class="modal__item">
+        <a class="modal__item-link" href="#">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22.5 5.77233C21.7271 6.10027 20.8978 6.32267 20.0264 6.42196C20.9161 5.91181 21.5972 5.10263 21.92 4.1414C21.0854 4.61383 20.1642 4.95688 19.1826 5.14285C18.3966 4.33994 17.2785 3.83984 16.0384 3.83984C13.6593 3.83984 11.7303 5.68691 11.7303 7.9637C11.7303 8.2866 11.7683 8.60199 11.8418 8.90357C8.26201 8.73141 5.08768 7.08917 2.96314 4.59372C2.59176 5.20189 2.38049 5.91053 2.38049 6.66697C2.38049 8.09814 3.14161 9.36093 4.2964 10.0997C3.5904 10.0771 2.92639 9.89116 2.34508 9.58205V9.63357C2.34508 11.6314 3.83056 13.2988 5.80024 13.6783C5.43936 13.7713 5.05882 13.8228 4.66514 13.8228C4.38696 13.8228 4.11794 13.7964 3.85417 13.7461C4.40267 15.3859 5.99315 16.5783 7.87756 16.611C6.40388 17.7167 4.54573 18.3739 2.52749 18.3739C2.17976 18.3739 1.83724 18.3537 1.5 18.3173C3.40671 19.4896 5.67036 20.1732 8.10327 20.1732C16.028 20.1732 20.3597 13.8881 20.3597 8.43741L20.3453 7.90341C21.1917 7.32537 21.9239 6.59912 22.5 5.77233Z" fill="white"/>
+            </svg>
+            
+        </a>
+      </li>
+      <li class="modal__item">
+        <a class="modal__item-link" href="#">
+          <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18.329 18.3327L18.3332 18.332V12.2195C18.3332 9.22921 17.6894 6.92574 14.1936 6.92574C12.513 6.92574 11.3853 7.84796 10.9248 8.72227H10.8762V7.2049H7.56163V18.332H11.013V12.8223C11.013 11.3716 11.288 9.9688 13.0846 9.9688C14.8547 9.9688 14.8811 11.6244 14.8811 12.9153V18.3327H18.329Z" fill="white"/>
+            <path d="M1.9415 7.2056H5.39706V18.3327H1.9415V7.2056Z" fill="white"/>
+            <path d="M3.66789 1.66602C2.56303 1.66602 1.6665 2.56254 1.6665 3.6674C1.6665 4.77227 2.56303 5.68754 3.66789 5.68754C4.77275 5.68754 5.66928 4.77227 5.66928 3.6674C5.66859 2.56254 4.77206 1.66602 3.66789 1.66602Z" fill="white"/>
+            </svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+  </div>
 </div>
   </header>
   <main>
